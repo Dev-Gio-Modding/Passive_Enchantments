@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "passive_enchantments",
+  "version": "${version}",
+  "name": "Passive Enchantments",
+  "description": "",
+  "authors": ["Dev-Gio"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/passive_enchantments/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.devgio.passive_enchantments.client.PassiveEnchantmentsClient"
+    ],
+    "main": [
+      "net.devgio.passive_enchantments.PassiveEnchantments"
+    ]
+  },
+  "mixins": [
+    "passive_enchantments.mixins.json",
+    {
+      "config": "passive_enchantments.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

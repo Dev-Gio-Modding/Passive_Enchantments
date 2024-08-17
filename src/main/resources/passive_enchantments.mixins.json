@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.devgio.passive_enchantments.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ai.EndermanAiMixin",
+    "ai.PhantomAIMixin",
+    "ai.PiglinAiMixin",
+    "ai.ZombieAIMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
