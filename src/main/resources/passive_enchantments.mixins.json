@@ -7,7 +7,9 @@
     "ai.EndermanAiMixin",
     "ai.PhantomAIMixin",
     "ai.PiglinAiMixin",
-    "ai.ZombieAIMixin"
+    "ai.ZombieAIMixin",
+    "ai.BlazeAIMixin",
+    "ai.SkeletonAIMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -15,19 +15,23 @@ import java.util.List;
 public class Enchantments {
 
     //For List
-    public static final RegistryKey<Enchantment> PASSIVE_PIGLINS_ENCHANTMENT = Enchantments.of("passive_piglins");
-    public static final RegistryKey<Enchantment> PASSIVE_ENDERMEN_ENCHANTMENT = Enchantments.of("passive_piglins");
-    public static final RegistryKey<Enchantment> PASSIVE_PHANTOMS_ENCHANTMENT = Enchantments.of("passive_piglins");
-    public static final RegistryKey<Enchantment> PASSIVE_ZOMBIES_ENCHANTMENT = Enchantments.of("passive_zombies");
+    public static final RegistryKey<Enchantment> PASSIVE_PIGLIN_ENCHANTMENT = Enchantments.of("passive_piglin");
+    public static final RegistryKey<Enchantment> PASSIVE_ENDERMAN_ENCHANTMENT = Enchantments.of("passive_enderman");
+    public static final RegistryKey<Enchantment> PASSIVE_PHANTOM_ENCHANTMENT = Enchantments.of("passive_phantom");
+    public static final RegistryKey<Enchantment> PASSIVE_ZOMBIE_ENCHANTMENT = Enchantments.of("passive_zombie");
+    public static final RegistryKey<Enchantment> PASSIVE_BLAZE_ENCHANTMENT = Enchantments.of("passive_blaze");
+    public static final RegistryKey<Enchantment> PASSIVE_SKELETON_ENCHANTMENT = Enchantments.of("passive_skeleton");
 
     //Enchantment Tags, used instead of getting level
-    public static final TagKey<Enchantment> PASSIVE_PIGLINS = enchantmentTagKeyOf("passive_piglins");
-    public static final TagKey<Enchantment> PASSIVE_ENDERMEN = enchantmentTagKeyOf("passive_endermen");
-    public static final TagKey<Enchantment> PASSIVE_PHANTOMS = enchantmentTagKeyOf("passive_phantoms");
-    public static final TagKey<Enchantment> PASSIVE_ZOMBIES = enchantmentTagKeyOf("passive_zombies");
+    public static final TagKey<Enchantment> PASSIVE_PIGLIN = enchantmentTagKeyOf("passive_piglin");
+    public static final TagKey<Enchantment> PASSIVE_ENDERMAN = enchantmentTagKeyOf("passive_enderman");
+    public static final TagKey<Enchantment> PASSIVE_PHANTOM = enchantmentTagKeyOf("passive_phantom");
+    public static final TagKey<Enchantment> PASSIVE_ZOMBIE = enchantmentTagKeyOf("passive_zombie");
+    public static final TagKey<Enchantment> PASSIVE_BLAZE = enchantmentTagKeyOf("passive_blaze");
+    public static final TagKey<Enchantment> PASSIVE_SKELETON = enchantmentTagKeyOf("passive_skeleton");
 
     //For Logger
-    public static final List<RegistryKey<Enchantment>> PASSIVE_ENCHANTMENTS = List.of(PASSIVE_ENDERMEN_ENCHANTMENT, PASSIVE_PHANTOMS_ENCHANTMENT, PASSIVE_ZOMBIES_ENCHANTMENT, PASSIVE_PIGLINS_ENCHANTMENT);
+    public static final List<RegistryKey<Enchantment>> PASSIVE_ENCHANTMENTS = List.of(PASSIVE_ENDERMAN_ENCHANTMENT, PASSIVE_PHANTOM_ENCHANTMENT, PASSIVE_ZOMBIE_ENCHANTMENT, PASSIVE_PIGLIN_ENCHANTMENT, PASSIVE_BLAZE_ENCHANTMENT, PASSIVE_SKELETON_ENCHANTMENT);
 
 
     //for RegistryKey and TagKey
