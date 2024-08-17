@@ -1,8 +1,10 @@
 {
 
-  "enchantment.passive_enchantments.passive_piglins": "Passive Piglins",
-  "enchantment.passive_enchantments.passive_endermen": "Passive Endermen",
-  "enchantment.passive_enchantments.passive_phantoms": "Passive Phantoms",
-  "enchantment.passive_enchantments.passive_zombies": "Passive Zombies"
+  "enchantment.passive_enchantments.passive_piglin": "Passive Piglin",
+  "enchantment.passive_enchantments.passive_enderman": "Passive Enderman",
+  "enchantment.passive_enchantments.passive_phantom": "Passive Phantom",
+  "enchantment.passive_enchantments.passive_zombie": "Passive Zombie",
+  "enchantment.passive_enchantments.passive_blaze": "Passive Blaze",
+  "enchantment.passive_enchantments.passive_skeleton": "Passive Skeleton"
 
 }

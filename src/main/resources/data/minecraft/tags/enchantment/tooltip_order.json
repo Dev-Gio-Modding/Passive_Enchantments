@@ -1,9 +1,11 @@
 {
   "replace": false,
   "values": [
-    "passive_enchantments:passive_piglins",
-    "passive_enchantments:passive_endermen",
+    "passive_enchantments:passive_piglin",
+    "passive_enchantments:passive_enderman",
     "passive_enchantments:passive_phantom",
-    "passive_enchantments:passive_zombies"
+    "passive_enchantments:passive_zombie",
+    "passive_enchantments:passive_blaze",
+    "passive_enchantments:passive_skeleton"
   ]
 }
