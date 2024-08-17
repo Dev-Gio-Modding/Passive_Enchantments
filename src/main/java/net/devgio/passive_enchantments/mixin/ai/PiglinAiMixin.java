@@ -26,7 +26,7 @@ public class PiglinAiMixin
 		for (ItemStack stack : entity.getArmorItems())
 		{
 
-			if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_PIGLINS))
+			if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_PIGLIN))
 			{
 				cir.setReturnValue(true);
 			}

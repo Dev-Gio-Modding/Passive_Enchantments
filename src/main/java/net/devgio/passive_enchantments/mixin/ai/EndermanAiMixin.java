@@ -32,7 +32,7 @@ public abstract class EndermanAiMixin extends HostileEntity implements Angerable
         for (ItemStack stack : player.getArmorItems())
         {
 
-            if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_ENDERMEN))
+            if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_ENDERMAN))
             {
                 cir.setReturnValue(false);
             }

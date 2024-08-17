@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -27,27 +28,31 @@ public abstract class ZombieAIMixin extends HostileEntity implements Monster
         super(entityType, level);
     }
 
-    @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-    private void Phantom_tick(CallbackInfo ci)
+
+
+
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void Zombie_tick(CallbackInfo ci)
     {
-        ZombieEntity zombie = (ZombieEntity) (Object) this; // zombie (attacker)
-        LivingEntity target = zombie.getTarget(); // zombie target (player)
+
+        ZombieEntity mob = (ZombieEntity) (Object) this;
+        LivingEntity target = mob.getTarget();
 
         if (target == null)
             return;
 
         if (target instanceof PlayerEntity)
         {
-            // return early if the attacker was angered by the target (player)
-            if (zombie.getAttacker() == target)
+
+            if (mob.getAttacker() == target)
                 return;
 
             for (ItemStack stack : target.getArmorItems())
             {
 
-                if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_ZOMBIES))
+                if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_ZOMBIE))
                 {
-                    zombie.setTarget(null);
+                    mob.setTarget(null);
                 }
             }
         }

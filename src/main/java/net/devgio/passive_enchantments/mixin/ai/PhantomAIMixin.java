@@ -27,25 +27,25 @@ public abstract class PhantomAIMixin extends FlyingEntity implements Monster
         super(entityType, level);
     }
 
-    @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "tick", at = @At("HEAD"))
     private void Phantom_tick(CallbackInfo ci)
     {
-        PhantomEntity phantom = (PhantomEntity) (Object) this; // phantom (attacker)
-        LivingEntity target = phantom.getTarget(); // phantom target (player)
+        PhantomEntity phantom = (PhantomEntity) (Object) this;
+        LivingEntity target = phantom.getTarget();
 
         if (target == null)
             return;
 
         if (target instanceof PlayerEntity)
         {
-            // return early if the attacker was angered by the target (player)
+
             if (phantom.getAttacker() == target)
                 return;
 
             for (ItemStack stack : target.getArmorItems())
             {
 
-                if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_PHANTOMS))
+                if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_PHANTOM))
                 {
                     phantom.setTarget(null);
                 }
