@@ -1,0 +1,19 @@
+{
+  "description": {
+    "translate": "enchantment.passive_enchantments.passive_endermen"
+  },
+  "supported_items": "#minecraft:enchantable/armor",
+  "exclusive_set": "#minecraft:exclusive_set/armor",
+  "slots": ["armor"],
+  "weight": 3,
+  "anvil_cost": 1,
+  "min_cost": {
+    "base": 25,
+    "per_level_above_first": 25
+  },
+  "max_cost": {
+    "base": 75,
+    "per_level_above_first": 25
+  },
+  "max_level": 1
+}

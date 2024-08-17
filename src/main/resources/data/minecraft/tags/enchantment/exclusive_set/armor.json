@@ -1,0 +1,9 @@
+{
+  "replace": true,
+  "values": [
+    "passive_enchantments:passive_piglins",
+    "passive_enchantments:passive_endermen",
+    "passive_enchantments:passive_phantom",
+    "passive_enchantments:passive_zombies"
+  ]
+}
