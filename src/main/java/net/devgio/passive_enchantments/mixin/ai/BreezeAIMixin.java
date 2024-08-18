@@ -5,8 +5,8 @@ import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.RangedAttackMob;
-import net.minecraft.entity.mob.*;
+import net.minecraft.entity.mob.BreezeEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -18,19 +18,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 /**
  * FIX
  */
-@Mixin(AbstractSkeletonEntity.class)
-public abstract class SkeletonAIMixin extends HostileEntity implements RangedAttackMob
+@Mixin(BreezeEntity.class)
+public abstract class BreezeAIMixin extends HostileEntity
 {
-    protected SkeletonAIMixin(EntityType<? extends HostileEntity> entityType, World level)
+    protected BreezeAIMixin(EntityType<? extends HostileEntity> entityType, World level)
     {
         super(entityType, level);
     }
 
-    @Inject(method = "tickMovement", at = @At("HEAD"))
-    private void Blaze_tick(CallbackInfo ci)
+
+
+
+    @Inject(method = "mobTick", at = @At("HEAD"))
+    private void Breeze_tick(CallbackInfo ci)
     {
 
-        AbstractSkeletonEntity mob = (AbstractSkeletonEntity) (Object) this;
+        BreezeEntity mob = (BreezeEntity) (Object) this;
         LivingEntity target = mob.getTarget();
 
 
@@ -46,8 +49,9 @@ public abstract class SkeletonAIMixin extends HostileEntity implements RangedAtt
             for (ItemStack stack : target.getArmorItems())
             {
 
-                if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_SKELETON))
+                if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_BREEZE))
                 {
+
                     mob.setTarget(null);
                 }
             }

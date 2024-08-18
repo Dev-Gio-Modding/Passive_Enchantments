@@ -5,6 +5,9 @@
   "enchantment.passive_enchantments.passive_phantom": "Passive Phantom",
   "enchantment.passive_enchantments.passive_zombie": "Passive Zombie",
   "enchantment.passive_enchantments.passive_blaze": "Passive Blaze",
-  "enchantment.passive_enchantments.passive_skeleton": "Passive Skeleton"
+  "enchantment.passive_enchantments.passive_skeleton": "Passive Skeleton",
+  "enchantment.passive_enchantments.passive_spider": "Passive Spider",
+  "enchantment.passive_enchantments.passive_creeper": "Passive Creeper",
+  "enchantment.passive_enchantments.passive_breeze": "Passive Breeze"
 
 }
