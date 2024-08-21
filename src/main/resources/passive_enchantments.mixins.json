@@ -4,16 +4,16 @@
   "package": "net.devgio.passive_enchantments.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-
-    "ai.BlazeAIMixin",
-    "ai.BreezeAIMixin",
-    "ai.EndermanAiMixin",
-    "ai.PhantomAIMixin",
-    "ai.PiglinAiMixin",
-    "ai.SkeletonAIMixin",
-    "ai.SpiderAIMixin",
-    "ai.CreeperAIMixin",
-    "ai.ZombieAIMixin"
+    "passive.BlazeMixin",
+    "passive.BreezeMixin",
+    "passive.CreeperMixin",
+    "passive.EndermiteMixin",
+    "passive.GhastMixin",
+    "passive.PhantomMixin",
+    "passive.ShulkerMixin",
+    "passive.SkeletonMixin",
+    "passive.SlimeMixin",
+    "passive.ZombieMixin"
 
   ],
   "injectors": {

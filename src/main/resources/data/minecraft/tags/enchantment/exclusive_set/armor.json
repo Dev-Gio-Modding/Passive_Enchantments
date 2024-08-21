@@ -3,12 +3,15 @@
   "values": [
     "passive_enchantments:passive_blaze",
     "passive_enchantments:passive_breeze",
+    "passive_enchantments:passive_creeper",
     "passive_enchantments:passive_enderman",
+    "passive_enchantments:passive_endermite",
     "passive_enchantments:passive_phantom",
     "passive_enchantments:passive_piglin",
+    "passive_enchantments:passive_shulker",
     "passive_enchantments:passive_skeleton",
+    "passive_enchantments:passive_slime",
     "passive_enchantments:passive_spider",
-    "passive_enchantments:passive_creeper",
     "passive_enchantments:passive_zombie"
   ]
 }

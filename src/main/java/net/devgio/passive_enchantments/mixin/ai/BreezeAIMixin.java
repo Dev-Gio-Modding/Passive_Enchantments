@@ -13,11 +13,9 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/**
- * FIX
- */
+
 @Mixin(BreezeEntity.class)
 public abstract class BreezeAIMixin extends HostileEntity
 {
@@ -29,8 +27,8 @@ public abstract class BreezeAIMixin extends HostileEntity
 
 
 
-    @Inject(method = "mobTick", at = @At("HEAD"))
-    private void Breeze_tick(CallbackInfo ci)
+    @Inject(method = "canTarget", at = @At("HEAD"), cancellable = true)
+    private void Breeze_tick(CallbackInfoReturnable<LivingEntity> cir)
     {
 
         BreezeEntity mob = (BreezeEntity) (Object) this;
@@ -52,7 +50,8 @@ public abstract class BreezeAIMixin extends HostileEntity
                 if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_BREEZE))
                 {
 
-                    mob.setTarget(null);
+                    cir.setReturnValue(null);
+                  //  mob.setTarget(null);
                 }
             }
         }
