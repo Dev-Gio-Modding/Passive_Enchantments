@@ -11,7 +11,7 @@
     "passive.EndermiteMixin",
     "passive.GhastMixin",
     "passive.GuardianMixin",
-    "passive.HoglinTestMixin",
+    "passive.HoglinMixin",
     "passive.PatrolMixin",
     "passive.PhantomMixin",
     "passive.PiglinBruteMixin",
