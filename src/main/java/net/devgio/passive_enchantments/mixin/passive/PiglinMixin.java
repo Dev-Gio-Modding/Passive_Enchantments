@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.ai;
+package net.devgio.passive_enchantments.mixin.passive;
 
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 
 @Mixin(PiglinBrain.class)
-public class PiglinAiMixin
+public class PiglinMixin
 {
 
 

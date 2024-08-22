@@ -6,12 +6,19 @@
     "passive_enchantments:passive_creeper",
     "passive_enchantments:passive_enderman",
     "passive_enchantments:passive_endermite",
+    "passive_enchantments:passive_guardian",
+    "passive_enchantments:passive_hoglin",
+    "passive_enchantments:passive_patrol",
     "passive_enchantments:passive_phantom",
     "passive_enchantments:passive_piglin",
+    "passive_enchantments:passive_piglin_brute",
     "passive_enchantments:passive_shulker",
+    "passive_enchantments:passive_silverfish",
     "passive_enchantments:passive_skeleton",
     "passive_enchantments:passive_slime",
     "passive_enchantments:passive_spider",
+    "passive_enchantments:passive_vex",
+    "passive_enchantments:passive_zoglin",
     "passive_enchantments:passive_zombie"
   ]
 }

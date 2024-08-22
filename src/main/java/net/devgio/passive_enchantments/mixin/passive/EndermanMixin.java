@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.ai;
+package net.devgio.passive_enchantments.mixin.passive;
 
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
@@ -17,11 +17,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 
 @Mixin(EndermanEntity.class)
-public abstract class EndermanAiMixin extends HostileEntity implements Angerable
+public abstract class EndermanMixin extends HostileEntity implements Angerable
 {
 
 
-    protected EndermanAiMixin(EntityType<? extends HostileEntity> entityType, World world) {
+    protected EndermanMixin(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
