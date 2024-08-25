@@ -51,7 +51,7 @@ public abstract class BreezeMixin extends HostileEntity
                 {
 
                     cir.setReturnValue(null);
-                  //  mob.setTarget(null);
+
                 }
             }
         }

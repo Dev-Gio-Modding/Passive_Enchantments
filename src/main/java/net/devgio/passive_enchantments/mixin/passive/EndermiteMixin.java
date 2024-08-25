@@ -31,6 +31,7 @@ abstract class EndermiteMixin {
             if (target == null) {
                 return;
             }
+            
 
             if (target.isPlayer()) {
                 if (mob.getAttacker() == target) {
