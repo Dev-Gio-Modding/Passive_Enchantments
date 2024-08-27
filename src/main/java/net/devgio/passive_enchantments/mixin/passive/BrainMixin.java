@@ -25,36 +25,7 @@ public abstract class BrainMixin {
     @Inject(method = "setMemory", at = @At("HEAD"), cancellable = true)
     private <U> void setMemoryInternal(MemoryModuleType<U> moduleType, Optional<? extends Memory<?>> memory, CallbackInfo callback) {
 
-        EntityType<?> type = ((MobEntity) (Object) this).getType();
-
-        if (type == EntityType.HOGLIN) {
-
-            HoglinEntity hoglin = (HoglinEntity) (Object) this;
-            LivingEntity target = hoglin.getTarget();
-
-
-            if (target == null){
-                return;
-            }
-            if (target.isPlayer()){
-                PlayerEntity player = (PlayerEntity) target;
-
-                if (hoglin.getAttacker() == target){
-                    Logger.LOGGER.info("test if hoglin was attacked");
-                    return;
-                }
-
-                for (ItemStack stack : player.getArmorItems())
-                {
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_HOGLIN)) {
-
-                        Logger.LOGGER.info("test cancel");
                         if (moduleType == MemoryModuleType.ATTACK_TARGET)
                             callback.cancel();
                     }
                 }
-            }
-        }
-
-    }
-}
