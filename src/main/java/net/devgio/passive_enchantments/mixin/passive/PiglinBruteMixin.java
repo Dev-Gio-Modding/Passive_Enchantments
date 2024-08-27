@@ -31,7 +31,7 @@ abstract class PiglinBruteMixin {
                 }
                 for (ItemStack stack : player.getArmorItems())
                 {
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_HOGLIN)) {
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_PIGLIN_BRUTE)) {
                         cir.setReturnValue(false);
                     }
                 }

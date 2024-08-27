@@ -29,7 +29,7 @@ abstract class ZoglinMixin {
                 }
                 for (ItemStack stack : player.getArmorItems())
                 {
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_HOGLIN)) {
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_ZOGLIN)) {
                         cir.setReturnValue(false);
                     }
                 }
