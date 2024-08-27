@@ -11,7 +11,7 @@
     "passive.EndermiteMixin",
     "passive.GhastMixin",
     "passive.GuardianMixin",
-
+    "passive.HoglinMixin",
     "passive.PatrolMixin",
     "passive.PhantomMixin",
     "passive.PiglinBruteMixin",
@@ -23,8 +23,7 @@
     "passive.SpiderMixin",
     "passive.VexMixin",
     "passive.ZoglinMixin",
-    "passive.ZombieMixin",
-    "passive.BrainMixin"
+    "passive.ZombieMixin"
 
   ],
   "injectors": {
