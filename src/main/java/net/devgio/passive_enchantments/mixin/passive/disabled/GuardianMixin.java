@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive;
+package net.devgio.passive_enchantments.mixin.passive.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -14,38 +14,35 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
-abstract
-class GhastMixin  {
+abstract class GuardianMixin {
 
     @Shadow private @Nullable LivingEntity target;
 
     @Inject(method = "getTarget",at = @At("HEAD"), cancellable = true)
-    private void getTarget(CallbackInfoReturnable<Boolean> cir)
-    {
+    private void getTarget(CallbackInfoReturnable<Boolean> cir) {
 
-        if (EntityType.GHAST == ((MobEntity)(Object)this).getType()) {
+        EntityType<?> type = ((MobEntity)(Object)this).getType();
+        
+        if (type == EntityType.GUARDIAN || type == EntityType.ELDER_GUARDIAN) {
 
-            GhastEntity mob = (GhastEntity) (Object) this;
+            GuardianEntity mob = (GuardianEntity) (Object) this;
             LivingEntity target = this.target;
 
-            if (target == null){
+            if (target == null) {
                 return;
             }
 
-            if (target.isPlayer()){
-                if (mob.getAttacker() == target){
+            if (target.isPlayer()) {
+                if (mob.getAttacker() == target) {
                     return;
                 }
-                for (ItemStack stack : target.getArmorItems())
-                {
+                for (ItemStack stack : target.getArmorItems()) {
 
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_BLAZE)) {
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_GUARDIAN)) {
                         cir.setReturnValue(null);
                     }
                 }
             }
-
-
 
         }
 

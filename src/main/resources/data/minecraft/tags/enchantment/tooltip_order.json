@@ -19,6 +19,7 @@
     "passive_enchantments:passive_spider",
     "passive_enchantments:passive_vex",
     "passive_enchantments:passive_zoglin",
-    "passive_enchantments:passive_zombie"
+    "passive_enchantments:passive_zombie",
+    "passive_enchantments:not_passive"
   ]
 }

@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive;
+package net.devgio.passive_enchantments.mixin.passive.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -18,15 +18,15 @@ public abstract class HoglinMixin {
 
 
     @Inject(method = "test",at = @At("HEAD"), cancellable = true)
-    private void onTargetTest(LivingEntity hoglin, LivingEntity target, CallbackInfoReturnable<Boolean> cir)
+    private void onTargetTest(LivingEntity mob, LivingEntity target, CallbackInfoReturnable<Boolean> cir)
     {
-        if (hoglin instanceof HoglinEntity){
+        if (mob instanceof HoglinEntity){
         if (target == null){
                 return;
             }
             if (target.isPlayer()){
                 PlayerEntity player = (PlayerEntity) target;
-                if (hoglin.getAttacker() == target){
+                if (mob.getAttacker() == target){
                     return;
                 }
                 for (ItemStack stack : player.getArmorItems())

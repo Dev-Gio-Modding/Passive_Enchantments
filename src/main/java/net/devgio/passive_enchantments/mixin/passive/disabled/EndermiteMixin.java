@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive;
+package net.devgio.passive_enchantments.mixin.passive.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
-abstract class SilverfishMixin {
+abstract class EndermiteMixin {
 
     @Shadow private @Nullable LivingEntity target;
 
@@ -23,14 +23,15 @@ abstract class SilverfishMixin {
 
         EntityType<?> type = ((MobEntity)(Object)this).getType();
         
-        if (type == EntityType.SILVERFISH) {
+        if (type == EntityType.ENDERMITE) {
 
-            SilverfishEntity mob = (SilverfishEntity) (Object) this;
+            EndermiteEntity mob = (EndermiteEntity) (Object) this;
             LivingEntity target = this.target;
 
             if (target == null) {
                 return;
             }
+            
 
             if (target.isPlayer()) {
                 if (mob.getAttacker() == target) {
@@ -38,13 +39,11 @@ abstract class SilverfishMixin {
                 }
                 for (ItemStack stack : target.getArmorItems()) {
 
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_SILVERFISH)) {
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_ENDERMITE)) {
                         cir.setReturnValue(null);
                     }
                 }
             }
-
         }
-
     }
 }

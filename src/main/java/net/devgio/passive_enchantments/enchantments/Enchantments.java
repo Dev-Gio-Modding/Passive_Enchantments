@@ -35,6 +35,8 @@ public class Enchantments {
     public static final RegistryKey<Enchantment> PASSIVE_ZOGLIN_ENCHANTMENT = Enchantments.of("passive_zoglin");
     public static final RegistryKey<Enchantment> PASSIVE_ZOMBIE_ENCHANTMENT = Enchantments.of("passive_zombie");
 
+    public static final RegistryKey<Enchantment> NOT_PASSIVE_ENCHANTMENT = Enchantments.of("not_passive");
+
 
     //Enchantment Tags, used instead of getting level
     public static final TagKey<Enchantment> PASSIVE_BLAZE = enchantmentTagKeyOf("passive_blaze");
@@ -57,6 +59,8 @@ public class Enchantments {
     public static final TagKey<Enchantment> PASSIVE_ZOGLIN = enchantmentTagKeyOf("passive_zoglin");
     public static final TagKey<Enchantment> PASSIVE_ZOMBIE = enchantmentTagKeyOf("passive_zombie");
 
+    public static final TagKey<Enchantment> NOT_PASSIVE = enchantmentTagKeyOf("not_passive");
+
     //For Logger
     public static final List<RegistryKey<Enchantment>> PASSIVE_ENCHANTMENTS = List.of(
             PASSIVE_BLAZE_ENCHANTMENT,
@@ -77,7 +81,8 @@ public class Enchantments {
             PASSIVE_SPIDER_ENCHANTMENT,
             PASSIVE_VEX_ENCHANTMENT,
             PASSIVE_ZOGLIN_ENCHANTMENT,
-            PASSIVE_ZOMBIE_ENCHANTMENT
+            PASSIVE_ZOMBIE_ENCHANTMENT,
+            NOT_PASSIVE_ENCHANTMENT
     );
 
 

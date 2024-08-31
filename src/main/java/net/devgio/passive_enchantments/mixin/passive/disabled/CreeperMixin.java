@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive;
+package net.devgio.passive_enchantments.mixin.passive.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
-abstract class SpiderMixin {
+abstract class CreeperMixin {
 
     @Shadow private @Nullable LivingEntity target;
 
@@ -23,9 +23,9 @@ abstract class SpiderMixin {
 
         EntityType<?> type = ((MobEntity)(Object)this).getType();
         
-        if (type == EntityType.SPIDER || type == EntityType.CAVE_SPIDER) {
+        if (type == EntityType.CREEPER) {
 
-            SpiderEntity mob = (SpiderEntity) (Object) this;
+            CreeperEntity mob = (CreeperEntity) (Object) this;
             LivingEntity target = this.target;
 
             if (target == null) {
@@ -38,13 +38,11 @@ abstract class SpiderMixin {
                 }
                 for (ItemStack stack : target.getArmorItems()) {
 
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_SPIDER)) {
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_CREEPER)) {
                         cir.setReturnValue(null);
                     }
                 }
             }
-
         }
-
     }
 }

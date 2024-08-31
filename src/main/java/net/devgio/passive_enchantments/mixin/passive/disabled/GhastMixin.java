@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive;
+package net.devgio.passive_enchantments.mixin.passive.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
 abstract
-class ZombieMixin {
+class GhastMixin  {
 
     @Shadow private @Nullable LivingEntity target;
 
@@ -23,13 +23,9 @@ class ZombieMixin {
     private void getTarget(CallbackInfoReturnable<Boolean> cir)
     {
 
-        EntityType<?> type = ((MobEntity)(Object)this).getType();
+        if (EntityType.GHAST == ((MobEntity)(Object)this).getType()) {
 
-
-        if (type == EntityType.ZOMBIE || type == EntityType.DROWNED || type == EntityType.HUSK || type == EntityType.ZOMBIE_VILLAGER) {
-
-            ZombieEntity mob = (ZombieEntity) (Object) this;
-
+            GhastEntity mob = (GhastEntity) (Object) this;
             LivingEntity target = this.target;
 
             if (target == null){
@@ -43,7 +39,7 @@ class ZombieMixin {
                 for (ItemStack stack : target.getArmorItems())
                 {
 
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_ZOMBIE)) {
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_BLAZE)) {
                         cir.setReturnValue(null);
                     }
                 }
