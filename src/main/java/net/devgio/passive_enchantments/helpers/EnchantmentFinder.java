@@ -1,38 +1,56 @@
 package net.devgio.passive_enchantments.helpers;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.*;
 import net.minecraft.registry.tag.TagKey;
+import java.util.Map;
+import java.util.HashMap;
+
 
 public class EnchantmentFinder {
 
-    public TagKey<net.minecraft.enchantment.Enchantment> mobEnchantment(LivingEntity mob) {
+    public TagKey<Enchantment> mobEnchantment(LivingEntity mob) {
 
-        if (mob instanceof BlazeEntity) return Enchantments.PASSIVE_BLAZE;
-        else if (mob instanceof BreezeEntity) return Enchantments.PASSIVE_BREEZE;
-        else if (mob instanceof CreeperEntity) return Enchantments.PASSIVE_CREEPER;
-        else if (mob instanceof EndermanEntity) return Enchantments.PASSIVE_ENDERMAN;
-        else if (mob instanceof EndermiteEntity) return Enchantments.PASSIVE_ENDERMITE;
-        else if (mob instanceof GuardianEntity) return Enchantments.PASSIVE_GUARDIAN;
-        else if (mob instanceof HoglinEntity) return Enchantments.PASSIVE_HOGLIN;
-        else if (mob instanceof PillagerEntity || mob instanceof RavagerEntity || mob instanceof VindicatorEntity || mob instanceof EvokerEntity || mob instanceof IllusionerEntity || mob instanceof WitchEntity) return Enchantments.PASSIVE_PATROL;
-        else if (mob instanceof PhantomEntity) return Enchantments.PASSIVE_PHANTOM;
-        else if (mob instanceof PiglinEntity) return Enchantments.PASSIVE_PIGLIN;
-        else if (mob instanceof PiglinBruteEntity) return Enchantments.PASSIVE_PIGLIN_BRUTE;
-        else if (mob instanceof ShulkerEntity) return Enchantments.PASSIVE_SHULKER;
-        else if (mob instanceof SilverfishEntity) return Enchantments.PASSIVE_SILVERFISH;
-        else if (mob instanceof SlimeEntity) return Enchantments.PASSIVE_SLIME;
-        else if (mob instanceof SkeletonEntity || mob instanceof StrayEntity || mob instanceof BoggedEntity) return Enchantments.PASSIVE_SKELETON;
-        else if (mob instanceof SpiderEntity || mob instanceof CaveSpiderEntity) return Enchantments.PASSIVE_SPIDER;
-        else if (mob instanceof VexEntity) return Enchantments.PASSIVE_VEX;
-        else if (mob instanceof ZoglinEntity) return Enchantments.PASSIVE_ZOGLIN;
-        else if (mob instanceof ZombieEntity || mob instanceof DrownedEntity || mob instanceof HuskEntity || mob instanceof ZombieVillagerEntity) return Enchantments.PASSIVE_ZOMBIE;
+        Class<?> mobClass = mob.getClass();
+        Map<Class<?>, TagKey<Enchantment>> enchantmentMap = new HashMap<>() {{
+            put(BlazeEntity.class, Enchantments.PASSIVE_BLAZE);
+            put(BreezeEntity.class, Enchantments.PASSIVE_BREEZE);
+            put(CreeperEntity.class, Enchantments.PASSIVE_CREEPER);
+            put(EndermanEntity.class, Enchantments.PASSIVE_ENDERMAN);
+            put(EndermiteEntity.class, Enchantments.PASSIVE_ENDERMITE);
+            put(GuardianEntity.class, Enchantments.PASSIVE_GUARDIAN);
+            put(HoglinEntity.class, Enchantments.PASSIVE_HOGLIN);
+            put(PhantomEntity.class, Enchantments.PASSIVE_PHANTOM);
+            put(PiglinEntity.class, Enchantments.PASSIVE_PIGLIN);
+            put(PiglinBruteEntity.class, Enchantments.PASSIVE_PIGLIN_BRUTE);
+            put(ShulkerEntity.class, Enchantments.PASSIVE_SHULKER);
+            put(SilverfishEntity.class, Enchantments.PASSIVE_SILVERFISH);
+            put(SlimeEntity.class, Enchantments.PASSIVE_SLIME);
+            put(SkeletonEntity.class, Enchantments.PASSIVE_SKELETON);
+            put(StrayEntity.class, Enchantments.PASSIVE_SKELETON);
+            put(BoggedEntity.class, Enchantments.PASSIVE_SKELETON);
+            put(SpiderEntity.class, Enchantments.PASSIVE_SPIDER);
+            put(CaveSpiderEntity.class, Enchantments.PASSIVE_SPIDER);
+            put(VexEntity.class, Enchantments.PASSIVE_VEX);
+            put(ZoglinEntity.class, Enchantments.PASSIVE_ZOGLIN);
+            // For patrol entities
+            put(PillagerEntity.class, Enchantments.PASSIVE_PATROL);
+            put(RavagerEntity.class, Enchantments.PASSIVE_PATROL);
+            put(VindicatorEntity.class, Enchantments.PASSIVE_PATROL);
+            put(EvokerEntity.class, Enchantments.PASSIVE_PATROL);
+            put(IllusionerEntity.class, Enchantments.PASSIVE_PATROL);
+            put(WitchEntity.class, Enchantments.PASSIVE_PATROL);
+        }};
 
+// Fetch the enchantment based on the mob's class or default to ZOMBIE enchantment
 
-
-        else return Enchantments.NOT_PASSIVE;
+        return enchantmentMap.getOrDefault(mobClass, Enchantments.PASSIVE_ZOMBIE);
     }
+
+    public TagKey<Enchantment> curse = Enchantments.AGGRESSION_CURSE;
+
 
 
 }

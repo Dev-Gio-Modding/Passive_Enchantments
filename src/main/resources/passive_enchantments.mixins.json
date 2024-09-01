@@ -4,8 +4,9 @@
   "package": "net.devgio.passive_enchantments.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "aggressive.ChickenMixin",
+    "aggressive.SheepMixin",
     "passive.MobMixin"
-
   ],
   "injectors": {
     "defaultRequire": 1
