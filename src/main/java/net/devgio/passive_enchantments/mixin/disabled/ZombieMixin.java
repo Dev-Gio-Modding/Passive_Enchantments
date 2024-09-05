@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive.disabled;
+package net.devgio.passive_enchantments.mixin.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;

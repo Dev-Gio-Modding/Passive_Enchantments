@@ -1,4 +1,4 @@
-    package net.devgio.passive_enchantments.mixin.passive.disabled;
+    package net.devgio.passive_enchantments.mixin.disabled;
 
     import net.devgio.passive_enchantments.enchantments.Enchantments;
     import net.minecraft.enchantment.EnchantmentHelper;
@@ -15,16 +15,16 @@
 
     @Mixin(MobEntity.class)
     abstract
-    class ShulkerMixin {
+    class PhantomMixin {
 
         @Shadow private @Nullable LivingEntity target;
 
         @Inject(method = "getTarget", at = @At("HEAD"), cancellable = true)
         private void getTarget(CallbackInfoReturnable<Boolean> cir) {
 
-            if (EntityType.SHULKER == ((MobEntity)(Object)this).getType()) {
+            if (EntityType.PHANTOM == ((MobEntity)(Object)this).getType()) {
 
-                ShulkerEntity mob = (ShulkerEntity) (Object) this;
+                PhantomEntity mob = (PhantomEntity) (Object) this;
                 LivingEntity target = this.target;
 
                 if (target == null){
@@ -37,7 +37,7 @@
                     }
                     for (ItemStack stack : target.getArmorItems()) {
 
-                        if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_SHULKER)) {
+                        if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_PHANTOM)) {
                             cir.setReturnValue(null);
                         }
                     }

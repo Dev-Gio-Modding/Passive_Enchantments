@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive.disabled;
+package net.devgio.passive_enchantments.mixin.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -15,31 +15,32 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
 abstract
-class SlimeMixin {
+class SkeletonMixin  {
 
     @Shadow private @Nullable LivingEntity target;
 
-    @Inject(method = "getTarget", at = @At("HEAD"), cancellable = true)
-    private void getTarget(CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "getTarget",at = @At("HEAD"), cancellable = true)
+    private void getTarget(CallbackInfoReturnable<Boolean> cir)
+    {
 
         EntityType<?> type = ((MobEntity)(Object)this).getType();
-        
-        if (type == EntityType.SLIME || type == EntityType.MAGMA_CUBE) {
 
-            SlimeEntity mob = (SlimeEntity) (Object) this;
+
+        if (type == EntityType.SKELETON || type == EntityType.STRAY || type == EntityType.BOGGED || type == EntityType.WITHER_SKELETON) {
+
+            AbstractSkeletonEntity mob = (AbstractSkeletonEntity) (Object) this;
             LivingEntity target = this.target;
 
-            if (target == null) {
+            if (target == null){
                 return;
             }
-
-            if (target.isPlayer()) {
-                if (mob.getAttacker() == target) {
+            if (target.isPlayer()){
+                if (mob.getAttacker() == target){
                     return;
                 }
-                for (ItemStack stack : target.getArmorItems()) {
-
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_SLIME)) {
+                for (ItemStack stack : target.getArmorItems())
+                {
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_SKELETON)) {
                         cir.setReturnValue(null);
                     }
                 }

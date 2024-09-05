@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive.disabled;
+package net.devgio.passive_enchantments.mixin.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -14,7 +14,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
-abstract class PatrolMixin {
+abstract
+class SlimeMixin {
 
     @Shadow private @Nullable LivingEntity target;
 
@@ -23,9 +24,9 @@ abstract class PatrolMixin {
 
         EntityType<?> type = ((MobEntity)(Object)this).getType();
         
-        if (type == EntityType.PILLAGER || type == EntityType.RAVAGER|| type == EntityType.VINDICATOR || type == EntityType.EVOKER || type == EntityType.ILLUSIONER || type == EntityType.WITCH) {
+        if (type == EntityType.SLIME || type == EntityType.MAGMA_CUBE) {
 
-            PatrolEntity mob = (PatrolEntity) (Object) this;
+            SlimeEntity mob = (SlimeEntity) (Object) this;
             LivingEntity target = this.target;
 
             if (target == null) {
@@ -38,13 +39,11 @@ abstract class PatrolMixin {
                 }
                 for (ItemStack stack : target.getArmorItems()) {
 
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_PATROL)) {
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_SLIME)) {
                         cir.setReturnValue(null);
                     }
                 }
             }
-
         }
-
     }
 }

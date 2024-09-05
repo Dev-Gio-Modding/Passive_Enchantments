@@ -4,6 +4,7 @@
   "package": "net.devgio.passive_enchantments.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "disabled.AllayMixin",
     "aggressive.ChickenMixin",
     "aggressive.SheepMixin",
     "passive.MobMixin"

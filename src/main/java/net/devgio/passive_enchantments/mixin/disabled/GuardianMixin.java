@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive.disabled;
+package net.devgio.passive_enchantments.mixin.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -14,18 +14,18 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
-abstract class BlazeMixin {
+abstract class GuardianMixin {
 
     @Shadow private @Nullable LivingEntity target;
 
-    @Inject(method = "getTarget", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getTarget",at = @At("HEAD"), cancellable = true)
     private void getTarget(CallbackInfoReturnable<Boolean> cir) {
 
         EntityType<?> type = ((MobEntity)(Object)this).getType();
         
-        if (type == EntityType.BLAZE) {
+        if (type == EntityType.GUARDIAN || type == EntityType.ELDER_GUARDIAN) {
 
-            BlazeEntity mob = (BlazeEntity) (Object) this;
+            GuardianEntity mob = (GuardianEntity) (Object) this;
             LivingEntity target = this.target;
 
             if (target == null) {
@@ -38,11 +38,13 @@ abstract class BlazeMixin {
                 }
                 for (ItemStack stack : target.getArmorItems()) {
 
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_BLAZE)) {
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_GUARDIAN)) {
                         cir.setReturnValue(null);
                     }
                 }
             }
+
         }
+
     }
 }

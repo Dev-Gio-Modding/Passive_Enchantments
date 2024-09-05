@@ -1,4 +1,4 @@
-package net.devgio.passive_enchantments.mixin.passive.disabled;
+package net.devgio.passive_enchantments.mixin.disabled;
 
 import net.devgio.passive_enchantments.enchantments.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -14,37 +14,37 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
-abstract
-class SkeletonMixin  {
+abstract class PatrolMixin {
 
     @Shadow private @Nullable LivingEntity target;
 
-    @Inject(method = "getTarget",at = @At("HEAD"), cancellable = true)
-    private void getTarget(CallbackInfoReturnable<Boolean> cir)
-    {
+    @Inject(method = "getTarget", at = @At("HEAD"), cancellable = true)
+    private void getTarget(CallbackInfoReturnable<Boolean> cir) {
 
         EntityType<?> type = ((MobEntity)(Object)this).getType();
+        
+        if (type == EntityType.PILLAGER || type == EntityType.RAVAGER|| type == EntityType.VINDICATOR || type == EntityType.EVOKER || type == EntityType.ILLUSIONER || type == EntityType.WITCH) {
 
-
-        if (type == EntityType.SKELETON || type == EntityType.STRAY || type == EntityType.BOGGED || type == EntityType.WITHER_SKELETON) {
-
-            AbstractSkeletonEntity mob = (AbstractSkeletonEntity) (Object) this;
+            PatrolEntity mob = (PatrolEntity) (Object) this;
             LivingEntity target = this.target;
 
-            if (target == null){
+            if (target == null) {
                 return;
             }
-            if (target.isPlayer()){
-                if (mob.getAttacker() == target){
+
+            if (target.isPlayer()) {
+                if (mob.getAttacker() == target) {
                     return;
                 }
-                for (ItemStack stack : target.getArmorItems())
-                {
-                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_SKELETON)) {
+                for (ItemStack stack : target.getArmorItems()) {
+
+                    if (EnchantmentHelper.hasAnyEnchantmentsIn(stack, Enchantments.PASSIVE_PATROL)) {
                         cir.setReturnValue(null);
                     }
                 }
             }
+
         }
+
     }
 }
