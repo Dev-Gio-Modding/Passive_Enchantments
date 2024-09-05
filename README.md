@@ -1,0 +1,1 @@
+This Fabric mod adds custom enchantments to make hostile mobs passive. 
