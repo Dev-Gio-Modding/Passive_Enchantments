@@ -118,4 +118,4 @@ run/
 !gradle-wrapper.jar
 
 #my ignores
-/src/main/java/net/devgio/passive_enchantments/mixin/disabled/
+/src/main/java/net/devgio/passive_enchantments/mixin/disabled
