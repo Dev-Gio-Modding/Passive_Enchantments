@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "aggressive.ChickenMixin",
+    "aggressive.CowMixin",
+    "aggressive.PigMixin",
     "aggressive.SheepMixin",
     "passive.MobMixin"
   ],
