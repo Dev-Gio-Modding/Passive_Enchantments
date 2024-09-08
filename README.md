@@ -17,5 +17,6 @@ Players will get to experience their worlds in a fun different aspect and be abl
 Gain this curse and passive mobs will also target you! This includes Chickens, Pigs, Sheep, Cows, and many more to come!
 #
 #
-This mod is brand new so not everything may work as expected! 
-This mod uses the Fabric API.
+- This mod is brand new so not everything may work as expected! 
+- This mod uses the Fabric API.
+- This mod is only distributed through Modrinth, CurseForge, and the Official GitHub Repo!
