@@ -29,9 +29,7 @@ class MobMixin {
         }
         if (target.isPlayer()){
             PlayerEntity player = (PlayerEntity) target;
-            if (mob.getAttacker() == target){
-                return;
-            }
+
             for (ItemStack stack : player.getArmorItems()) {
                 TagKey<Enchantment> enchantment = new EnchantmentFinder().mobEnchantment(mob);
                 TagKey<Enchantment> curse = new EnchantmentFinder().curse;
@@ -43,10 +41,18 @@ class MobMixin {
                 } else {
                     boolean mobFinder = new MobFinder().mobFinder(mob);
                     if (mobFinder) {
+                        if (mob.getAttacker() == target){
+                            cir.setReturnValue(false);
+                        } else {
                         cir.setReturnValue(false);
+                        }
                     }
                     else if (hasEnchantment) {
-                        cir.setReturnValue(false);
+                        if (mob.getAttacker() == target){
+                            return;
+                        } else {
+                            cir.setReturnValue(false);
+                        }
                     }
                 }
             }

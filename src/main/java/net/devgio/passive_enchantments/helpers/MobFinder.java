@@ -6,7 +6,7 @@ import java.util.Set;
 
 
 public class MobFinder {
-
+//passives
     public boolean mobFinder(LivingEntity mob) {
         Set<Class<? extends LivingEntity>> allowedMobs = Set.of(
                 AllayEntity.class, ArmadilloEntity.class, AxolotlEntity.class,
