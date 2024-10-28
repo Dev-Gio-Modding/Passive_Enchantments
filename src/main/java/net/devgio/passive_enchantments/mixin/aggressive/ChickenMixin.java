@@ -24,7 +24,7 @@ public abstract class ChickenMixin extends AnimalEntity {
     }
     @Inject(method = "createChickenAttributes", at = @At("RETURN"), cancellable = true)
     private static void createAttributes(CallbackInfoReturnable<DefaultAttributeContainer.Builder> cir) {
-        cir.setReturnValue(cir.getReturnValue().add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0).add(EntityAttributes.GENERIC_ARMOR, 2.0).add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0));
+        cir.setReturnValue(cir.getReturnValue().add(EntityAttributes.FOLLOW_RANGE, 35.0).add(EntityAttributes.MOVEMENT_SPEED, 0.25).add(EntityAttributes.ATTACK_DAMAGE, 3.0).add(EntityAttributes.ARMOR, 2.0).add(EntityAttributes.MAX_HEALTH, 4.0));
     }
     @Inject(method = "initGoals", at = @At("RETURN"))
     private void initGoals(CallbackInfo ci) {

@@ -9,6 +9,7 @@ import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.server.world.ServerWorld;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,7 +23,7 @@ abstract
 class MobMixin {
 
     @Inject(method = "test",at = @At("HEAD"), cancellable = true)
-    private void onTargetTest(LivingEntity mob, LivingEntity target, CallbackInfoReturnable<Boolean> cir)
+    private void onTargetTest(ServerWorld world, LivingEntity mob, LivingEntity target, CallbackInfoReturnable<Boolean> cir)
     {
         if (target == null){
                 return;

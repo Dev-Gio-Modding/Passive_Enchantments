@@ -17,6 +17,8 @@ public class EnchantmentFinder {
         Map<Class<?>, TagKey<Enchantment>> enchantmentMap = new HashMap<>() {{
             put(BlazeEntity.class, Enchantments.PASSIVE_BLAZE);
             put(BreezeEntity.class, Enchantments.PASSIVE_BREEZE);
+            put(TransientCreakingEntity.class, Enchantments.PASSIVE_CREAKING);
+            put(CreakingEntity.class, Enchantments.PASSIVE_CREAKING);
             put(CreeperEntity.class, Enchantments.PASSIVE_CREEPER);
             put(EndermanEntity.class, Enchantments.PASSIVE_ENDERMAN);
             put(EndermiteEntity.class, Enchantments.PASSIVE_ENDERMITE);
